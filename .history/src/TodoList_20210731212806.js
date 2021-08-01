@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import 'antd/dist/antd.css';
 import { Input, Button, List } from 'antd';
 import store from './store/index';
-// import {CHANGE_INPUT_VALUE,ADD_TODO_ITEM,DELETE_TODO_ITEM} from './store/actionTypes';
-import { getAddItemAction, getInputChangeAction ,getDeleteItemAction} from './store/actionCreators';
+import {CHANGE_INPUT_VALUE,ADD_TODO_ITEM,DELETE_TODO_ITEM} from './store/actionTypes';
+import { getAddItemAction, getInputChangeAction } from './store/actionCreators';
 
 
 // const data = [
@@ -23,6 +23,7 @@ class TodoList extends Component {
         this.handleInputChange=this.handleInputChange.bind(this);
         this.handleStoreChange=this.handleStoreChange.bind(this);
         this.handleBtnOnClick=this.handleBtnOnClick.bind(this);
+        
         store.subscribe(this.handleStoreChange);
 
     }
@@ -65,11 +66,10 @@ class TodoList extends Component {
         store.dispatch(action);
     }
     handleItemDelete(index){
-        // const action={
-        //     type:DELETE_TODO_ITEM,
-        //     index
-        // }
-        const action=getDeleteItemAction(index);
+        const action={
+            type:DELETE_TODO_ITEM,
+            index
+        }
         store.dispatch(action);
     }
 }

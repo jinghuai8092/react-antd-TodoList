@@ -23,6 +23,7 @@ class TodoList extends Component {
         this.handleInputChange=this.handleInputChange.bind(this);
         this.handleStoreChange=this.handleStoreChange.bind(this);
         this.handleBtnOnClick=this.handleBtnOnClick.bind(this);
+        
         store.subscribe(this.handleStoreChange);
 
     }
