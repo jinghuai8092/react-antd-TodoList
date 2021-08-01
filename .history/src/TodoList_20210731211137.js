@@ -66,6 +66,7 @@ class TodoList extends Component {
             type:'delete_todo_item',
             index
         }
+        alert(index);
         store.dispatch(action);
     }
 }

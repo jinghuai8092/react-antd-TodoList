@@ -62,11 +62,7 @@ class TodoList extends Component {
         store.dispatch(action);
     }
     handleItemDelete(index){
-        const action={
-            type:'delete_todo_item',
-            index
-        }
-        store.dispatch(action);
+        alert(index);
     }
 }
 

@@ -20,8 +20,6 @@ class TodoList extends Component {
         console.log(this.state);
         this.handleInputChange=this.handleInputChange.bind(this);
         this.handleStoreChange=this.handleStoreChange.bind(this);
-        this.handleBtnOnClick=this.handleBtnOnClick.bind(this);
-        
         store.subscribe(this.handleStoreChange);
 
     }
@@ -32,12 +30,12 @@ class TodoList extends Component {
             <div style={{ marginTop: '10px', marginLeft: '10px' }}>
                 <div>
                     <Input value={this.state.inputValue} placeholder="todo info" style={{ width: '300px', marginRight: '10px' }} onChange={this.handleInputChange} />
-                    <Button type="primary" onClick={this.handleBtnOnClick}>Upload</Button>
+                    <Button type="primary">Upload</Button>
                     <List
                         style={{marginTop:'10px',width:'300px'}}
                         bordered
                         dataSource={this.state.List}
-                        renderItem={(item,index) => <List.Item onClick={this.handleItemDelete.bind(this,index)}>{item}</List.Item>}
+                        renderItem={item => <List.Item>{item}</List.Item>}
                     />
                 </div>
             </div>
@@ -47,24 +45,6 @@ class TodoList extends Component {
         const action={
             type:'change_input_value',
             value: e.target.value
-        }
-        store.dispatch(action);
-    }
-    handleStoreChange(){
-        // console.log('store Changed');
-        this.setState(store.getState());
-    }
-    handleBtnOnClick(){
-        const action={
-            type:'add_todo_item',
-            
-        }
-        store.dispatch(action);
-    }
-    handleItemDelete(index){
-        const action={
-            type:'delete_todo_item',
-            index
         }
         store.dispatch(action);
     }

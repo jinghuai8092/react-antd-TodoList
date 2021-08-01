@@ -21,7 +21,7 @@ class TodoList extends Component {
         this.handleInputChange=this.handleInputChange.bind(this);
         this.handleStoreChange=this.handleStoreChange.bind(this);
         this.handleBtnOnClick=this.handleBtnOnClick.bind(this);
-        
+        handleItemClick
         store.subscribe(this.handleStoreChange);
 
     }
@@ -58,13 +58,6 @@ class TodoList extends Component {
         const action={
             type:'add_todo_item',
             
-        }
-        store.dispatch(action);
-    }
-    handleItemDelete(index){
-        const action={
-            type:'delete_todo_item',
-            index
         }
         store.dispatch(action);
     }
