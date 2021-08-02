@@ -1,5 +1,5 @@
 // import { List } from "antd/lib/form/Form";
-import {CHANGE_INPUT_VALUE,ADD_TODO_ITEM,DELETE_TODO_ITEM,INIT_LIST_ACTION} from './actionTypes';
+import {CHANGE_INPUT_VALUE,ADD_TODO_ITEM,DELETE_TODO_ITEM} from './actionTypes';
 
 const defaultState={
     inputValue:'',
@@ -27,13 +27,7 @@ export default (state=defaultState,action)=>{
         //找到对应的下标然后删除
         return newState;
     }
-    if(action.type===INIT_LIST_ACTION){
-        const newState=JSON.parse(JSON.stringify(state));
-        newState.List=action.data;
-        console.log(newState)
-        //找到对应的下标然后删除
-        return newState;
-    }
+    if(action.type===)
     // console.log(state,action)
     return state;
     //state 存放的是所有仓库中的数据

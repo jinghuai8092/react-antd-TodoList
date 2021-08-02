@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
+import { Input, Button, List } from 'antd';
 import store from './store/index';
 // import {CHANGE_INPUT_VALUE,ADD_TODO_ITEM,DELETE_TODO_ITEM} from './store/actionTypes';
-import { getAddItemAction, getInputChangeAction ,getDeleteItemAction,initListAction} from './store/actionCreators';
+import { getAddItemAction, getInputChangeAction ,getDeleteItemAction} from './store/actionCreators';
 import TodoListUI from './TodoListUI';
-import axios from 'axios';
 
 // const data = [
 //     'Racing car sprays burning fuel into crowd.',
@@ -13,9 +13,6 @@ import axios from 'axios';
 //     'Man charged over missing wedding girl.',
 //     'Los Angeles battles huge wildfires.',
 // ];
-
-//容器组件 聪明组件，只负责业务逻辑 负责功能实现
-
 
 class TodoList extends Component {
     
@@ -26,29 +23,14 @@ class TodoList extends Component {
         this.handleInputChange=this.handleInputChange.bind(this);
         this.handleStoreChange=this.handleStoreChange.bind(this);
         this.handleBtnOnClick=this.handleBtnOnClick.bind(this);
-        this.handleItemDelete=this.handleItemDelete.bind(this);
         store.subscribe(this.handleStoreChange);
 
     }
     
     
     render() {
-        return <TodoListUI 
-        inputValue={this.state.inputValue}
-        handleInputChange={this.handleInputChange}
-        handleBtnOnClick={this.handleBtnOnClick}
-        list={this.state.List}
-        handleItemDelete={this.handleItemDelete} />
+        return
     }
-    componentDidMount(){
-        axios.get('/list.json').then((res)=>{
-            const date =res.data;
-            const action =initListAction(res.data);
-            store.dispatch(action)
-
-        });
-    }
-
     handleInputChange(e){
         // const action={
         //     type:CHANGE_INPUT_VALUE,

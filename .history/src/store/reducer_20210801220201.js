@@ -27,13 +27,7 @@ export default (state=defaultState,action)=>{
         //找到对应的下标然后删除
         return newState;
     }
-    if(action.type===INIT_LIST_ACTION){
-        const newState=JSON.parse(JSON.stringify(state));
-        newState.List=action.data;
-        console.log(newState)
-        //找到对应的下标然后删除
-        return newState;
-    }
+    if(action.type===INIT_LIST_ACTION)
     // console.log(state,action)
     return state;
     //state 存放的是所有仓库中的数据
