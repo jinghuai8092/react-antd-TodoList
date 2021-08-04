@@ -18,11 +18,10 @@ export const initListAction = (data) => ({
 });
 
 export const getTodoList = () => {
-    return (dispatch) => {
+    return () => {
         axios.get('/list.json').then((res) => {
             const data = res.data;
-            const action = initListAction(data);
-            dispatch(action);
+            // const action = initListAction(data);
             // store.dispatch(action)
 
         });

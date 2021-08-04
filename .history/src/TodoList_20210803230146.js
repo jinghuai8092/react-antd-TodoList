@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import 'antd/dist/antd.css';
 import store from './store/index';
 // import {CHANGE_INPUT_VALUE,ADD_TODO_ITEM,DELETE_TODO_ITEM} from './store/actionTypes';
-import {getTodoList, getAddItemAction, getInputChangeAction ,getDeleteItemAction} from './store/actionCreators';
+import {getTodoList, getAddItemAction, getInputChangeAction ,getDeleteItemAction,initListAction} from './store/actionCreators';
 import TodoListUI from './TodoListUI';
 
 // const data = [
