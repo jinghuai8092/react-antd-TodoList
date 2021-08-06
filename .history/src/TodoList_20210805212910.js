@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import 'antd/dist/antd.css';
 import store from './store/index';
 // import {CHANGE_INPUT_VALUE,ADD_TODO_ITEM,DELETE_TODO_ITEM} from './store/actionTypes';
-import { getInitList,getAddItemAction, getInputChangeAction ,getDeleteItemAction} from './store/actionCreators';
+import { initListAction,getAddItemAction, getInputChangeAction ,getDeleteItemAction} from './store/actionCreators';
 import TodoListUI from './TodoListUI';
-// import axios from 'axios';
 
 // const data = [
 //     'Racing car sprays burning fuel into crowd.',
@@ -44,14 +43,12 @@ class TodoList extends Component {
         // const action = getTodoList();
         // store.dispatch(action)
         // console.log(action);
-        // axios.get('/list.json').then((res)=>{
-        //     const data =res.data;
-        //     const action =initListAction(data);
-        //     store.dispatch(action)
+        axios.get('/list.json').then((res)=>{
+            const data =res.data;
+            const action =initListAction(data);
+            store.dispatch(action)
 
-        // });
-        const action =getInitList();
-        store.dispatch(action);
+        });
     }
 
     handleInputChange(e){
